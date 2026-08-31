@@ -48,12 +48,11 @@
             margin-bottom: 40px;
         }
 
-        /* Rectangular glowing container with rounded corners */
         .logo-container {
             width: 160px;
             height: 90px;
             margin: 0 auto 20px;
-            border-radius: 16px; /* Smooth rounded corners */
+            border-radius: 16px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -88,12 +87,7 @@
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 15px;
-        }
-
-        @media (max-width: 600px) {
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
+            margin-bottom: 40px;
         }
 
         .stat-card {
@@ -118,6 +112,84 @@
             letter-spacing: 1px;
             font-weight: 700;
         }
+
+        /* Section Title Bolding Style */
+        .section-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--secondary);
+            padding-left: 10px;
+        }
+
+        /* Players Section */
+        .players-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 15px;
+        }
+
+        .player-card {
+            background: var(--stat-bg);
+            border: 1px solid #1a2744;
+            border-radius: 12px;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .player-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--secondary);
+        }
+
+        .jersey-number {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--secondary);
+            background: rgba(59, 130, 246, 0.1);
+            width: 45px;
+            height: 45px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            flex-shrink: 0;
+        }
+
+        .player-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .player-name {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        .player-position {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 2px;
+        }
+
+        @media (max-width: 600px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .players-grid {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
@@ -133,17 +205,17 @@
 
         <section class="stats-grid">
             <div class="stat-card">
-                <div class="stat-value">22</div>
+                <div class="stat-value">18</div>
                 <div class="stat-label">Goals</div>
             </div>
 
             <div class="stat-card">
-                <div class="stat-value">67</div>
+                <div class="stat-value">63</div>
                 <div class="stat-label">Tackles</div>
             </div>
 
             <div class="stat-card">
-                <div class="stat-value">21</div>
+                <div class="stat-value">19</div>
                 <div class="stat-label">Nutmegs</div>
             </div>
 
@@ -152,6 +224,26 @@
                 <div class="stat-label">Penalties Scored</div>
             </div>
         </section>
+
+        <div class="section-title">Club members</div>
+        <section class="players-grid">
+            <div class="player-card">
+                <div class="jersey-number">7</div>
+                <div class="player-info">
+                    <span class="player-name">Cristiano Ronaldo (MK)</span>
+                    <span class="player-position">Dominant Striker</span>
+                </div>
+            </div>
+
+            <div class="player-card">
+                <div class="jersey-number">10</div>
+                <div class="player-info">
+                    <span class="player-name">Arjun</span>
+                    <span class="player-position">Supporting Striker</span>
+                </div>
+            </div>
+
+                    </section>
     </div>
 
 </body>
