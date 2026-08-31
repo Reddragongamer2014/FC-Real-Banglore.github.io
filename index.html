@@ -9,10 +9,11 @@
             --primary: #1e3a8a;
             --secondary: #3b82f6;
             --accent: #f59e0b;
-            --bg: #0f172a;
-            --card-bg: #1e293b;
-            --text: #f8fafc;
-            --text-muted: #94a3b8;
+            --bg: #0b1329;
+            --card-bg: #162038;
+            --stat-bg: #0d162d;
+            --text: #ffffff;
+            --text-muted: #8e9bb0;
         }
 
         * {
@@ -36,10 +37,10 @@
             width: 100%;
             max-width: 900px;
             background: var(--card-bg);
-            border-radius: 16px;
+            border-radius: 20px;
             padding: 40px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-            border: 1px solid #334155;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 1px solid #1f2d4d;
         }
 
         .header {
@@ -47,76 +48,75 @@
             margin-bottom: 40px;
         }
 
+        /* Rectangular glowing container with rounded corners */
         .logo-container {
             width: 160px;
             height: 90px;
             margin: 0 auto 20px;
-            background: #ffffff;
-            border-radius: 12px;
+            border-radius: 16px; /* Smooth rounded corners */
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
-            overflow: hidden;
+            background: #000;
+            box-shadow: 0 0 25px rgba(59, 130, 246, 0.8);
             border: 3px solid var(--secondary);
-            padding: 5px;
+            overflow: hidden;
         }
 
         .logo-container img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            border-radius: 8px;
+            object-fit: contain;
         }
 
         .club-title {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             font-weight: 700;
-            letter-spacing: 1px;
-            margin-bottom: 5px;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
         }
 
         .established {
-            font-size: 1rem;
+            font-size: 0.85rem;
             color: var(--accent);
-            font-weight: 600;
+            font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 2px;
         }
 
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        @media (max-width: 600px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
         .stat-card {
-            background: #0f172a;
-            border: 1px solid #334155;
+            background: var(--stat-bg);
             border-radius: 12px;
-            padding: 25px 15px;
+            padding: 25px 10px;
             text-align: center;
-            transition: transform 0.2s ease, border-color 0.2s ease;
-        }
-
-        .stat-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--secondary);
+            border: 1px solid #1a2744;
         }
 
         .stat-value {
             font-size: 2.5rem;
             font-weight: 800;
             color: var(--secondary);
-            margin-bottom: 5px;
+            margin-bottom: 8px;
         }
 
         .stat-label {
-            font-size: 0.9rem;
+            font-size: 0.75rem;
             color: var(--text-muted);
             text-transform: uppercase;
             letter-spacing: 1px;
-            font-weight: 600;
+            font-weight: 700;
         }
     </style>
 </head>
@@ -125,10 +125,10 @@
     <div class="container">
         <header class="header">
             <div class="logo-container">
-                <img src="Gemini_Generated_Image_47c4u547c4u547c4.png" alt="Club Logo">
+                <img src="your-logo-path.png" alt="FC Real Banglore Logo">
             </div>
             <h1 class="club-title">FC Real Banglore</h1>
-            <p class="established">Est. September 27, 2026</p>
+            <p class="established">EST. SEPTEMBER 27, 2026</p>
         </header>
 
         <section class="stats-grid">
