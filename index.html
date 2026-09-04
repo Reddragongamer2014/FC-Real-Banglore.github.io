@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FC Real Banglore - Official Club Page</title>
+    <title>FC Real Banglore</title>
     <style>
         :root {
             --primary: #1e3a8a;
@@ -248,24 +248,26 @@
     </div>
 
     <script>
-        const SPREADSHEET_ID = '14HtRxp6DR0sfS1f2fckOqApIu10WrsKvbIDcBIAnziA';
-        const STATS_CSV_URL = `https://docs.google.com/spreadsheets/d/${SPREADSHEET_ID}/gviz/tq?tqx=out:csv&sheet=Stats`;
-        const PLAYERS_CSV_URL = `https://docs.google.com/spreadsheets/d/${SPREADSHEET_ID}/gviz/tq?tqx=out:csv&sheet=Players`;
+        const STATS_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQTBpk0fLwmA8UleJEOWixtImU-JpM94mbJUImXw9XwD7h6R4JAc6EkFRaFHAKPv9volTIPtjrC8ms1/pub?gid=0&single=true&output=csv';
+        const PLAYERS_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQTBpk0fLwmA8UleJEOWixtImU-JpM94mbJUImXw9XwD7h6R4JAc6EkFRaFHAKPv9volTIPtjrC8ms1/pub?gid=935091105&single=true&output=csv';
 
+        // Helper function to fetch and clean CSV text
         async function fetchCSV(url) {
             const response = await fetch(url);
-            const text = await response.text();
-            return text.trim().split('\n').map(row => 
+            const data = await response.text();
+            return data.trim().split('\n').map(row => 
                 row.split(',').map(cell => cell.replace(/^"(.*)"$/, '$1').trim())
             );
         }
 
+        // Load Statistics
         async function loadStats() {
             try {
                 const rows = await fetchCSV(STATS_CSV_URL);
                 const container = document.getElementById('statsGrid');
                 container.innerHTML = '';
 
+                // Skip header row
                 for (let i = 1; i < rows.length; i++) {
                     const [statName, value] = rows[i];
                     if (statName && value) {
@@ -278,16 +280,18 @@
                     }
                 }
             } catch (err) {
-                console.error("Error loading club stats:", err);
+                console.error("Error loading stats:", err);
             }
         }
 
+        // Load Players Roster
         async function loadPlayers() {
             try {
                 const rows = await fetchCSV(PLAYERS_CSV_URL);
                 const container = document.getElementById('playersGrid');
                 container.innerHTML = '';
 
+                // Skip header row
                 for (let i = 1; i < rows.length; i++) {
                     const [number, name, position] = rows[i];
                     if (number && name) {
@@ -303,7 +307,7 @@
                     }
                 }
             } catch (err) {
-                console.error("Error loading roster:", err);
+                console.error("Error loading players:", err);
             }
         }
 
