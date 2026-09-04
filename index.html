@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FC Real Banglore</title>
+    <title>FC Real Banglore - Official Club Site</title>
     <style>
         :root {
             --primary: #1e3a8a;
@@ -43,7 +43,7 @@
             border: 1px solid #1f2d4d;
         }
 
-        /* Navigation Links */
+        /* Navigation Bar */
         .nav-tabs {
             display: flex;
             justify-content: center;
@@ -53,35 +53,23 @@
             padding-bottom: 15px;
         }
 
-        .nav-btn {
-            background: transparent;
-            border: none;
+        .nav-link {
             color: var(--text-muted);
+            text-decoration: none;
             font-weight: 700;
             font-size: 0.9rem;
             text-transform: uppercase;
             letter-spacing: 1px;
             padding: 8px 16px;
             border-radius: 8px;
-            cursor: pointer;
             transition: all 0.2s ease;
         }
 
-        .nav-btn.active, .nav-btn:hover {
+        .nav-link.active, .nav-link:hover {
             color: var(--text);
             background: var(--secondary);
         }
 
-        /* Views Toggle */
-        .tab-content {
-            display: none;
-        }
-
-        .tab-content.active {
-            display: block;
-        }
-
-        /* Club Header */
         .header {
             text-align: center;
             margin-bottom: 40px;
@@ -122,60 +110,6 @@
             letter-spacing: 2px;
         }
 
-        /* Profile Header */
-        .profile-header {
-            display: flex;
-            align-items: center;
-            gap: 25px;
-            margin-bottom: 35px;
-            padding-bottom: 25px;
-            border-bottom: 1px solid #1f2d4d;
-        }
-
-        .jersey-badge {
-            width: 90px;
-            height: 90px;
-            border-radius: 16px;
-            background: rgba(59, 130, 246, 0.1);
-            border: 3px solid var(--secondary);
-            box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.8rem;
-            font-weight: 800;
-            color: var(--secondary);
-            flex-shrink: 0;
-        }
-
-        .player-meta {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .player-name {
-            font-size: 2.2rem;
-            font-weight: 700;
-            line-height: 1.2;
-            margin-bottom: 5px;
-        }
-
-        .player-role {
-            font-size: 1rem;
-            color: var(--secondary);
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 5px;
-        }
-
-        .club-name-sub {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            font-weight: 600;
-        }
-
-        /* Shared Grids & Sections */
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -231,7 +165,7 @@
             display: flex;
             align-items: center;
             gap: 15px;
-            cursor: pointer;
+            text-decoration: none;
             transition: transform 0.2s ease, border-color 0.2s ease;
         }
 
@@ -260,7 +194,7 @@
             flex-direction: column;
         }
 
-        .player-card-name {
+        .player-name {
             font-size: 1rem;
             font-weight: 700;
             color: var(--text);
@@ -274,43 +208,12 @@
             margin-top: 2px;
         }
 
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-        }
-
-        .info-card {
-            background: var(--stat-bg);
-            border-radius: 12px;
-            padding: 15px 20px;
-            border: 1px solid #1a2744;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .info-label {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
-
-        .info-value {
-            font-size: 0.95rem;
-            font-weight: 700;
-            color: var(--text);
-        }
-
         @media (max-width: 600px) {
             .stats-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
-            .players-grid, .info-grid {
+            .players-grid {
                 grid-template-columns: 1fr;
-            }
-            .profile-header {
-                flex-direction: column;
-                text-align: center;
             }
         }
     </style>
@@ -318,91 +221,43 @@
 <body>
 
     <div class="container">
-        <!-- Navigation Tabs -->
+        <!-- Navigation to Profile Site -->
         <nav class="nav-tabs">
-            <button class="nav-btn active" onclick="switchTab('clubView', event)">Club Overview</button>
-            <button class="nav-btn" onclick="switchTab('profileView', event)">My Profile</button>
+            <a href="index.html" class="nav-link active">Club Overview</a>
+            <!-- Change 'profile.html' or add full URL of your separate profile site -->
+            <a href="profile.html" class="nav-link">My Profile ➔</a>
         </nav>
 
-        <!-- VIEW 1: CLUB OVERVIEW -->
-        <div id="clubView" class="tab-content active">
-            <header class="header">
-                <div class="logo-container">
-                    <img src="logo.png" alt="FC Real Banglore Logo">
-                </div>
-                <h1 class="club-title">FC Real Banglore</h1>
-                <p class="established">EST. SEPTEMBER 27, 2026</p>
-            </header>
+        <header class="header">
+            <div class="logo-container">
+                <img src="your-logo-path.png" alt="FC Real Banglore Logo">
+            </div>
+            <h1 class="club-title">FC Real Banglore</h1>
+            <p class="established">EST. SEPTEMBER 27, 2026</p>
+        </header>
 
-            <section class="stats-grid" id="statsGrid">
-                <div class="stat-card"><div class="stat-value">...</div><div class="stat-label">Loading</div></div>
-            </section>
+        <!-- Dynamic Club Stats Grid -->
+        <section class="stats-grid" id="statsGrid">
+            <div class="stat-card"><div class="stat-value">...</div><div class="stat-label">Loading</div></div>
+        </section>
 
-            <div class="section-title">Squad Roster</div>
-            <section class="players-grid" id="playersGrid">
-                <div class="stat-card"><div class="stat-value">...</div><div class="stat-label">Loading Roster</div></div>
-            </section>
-        </div>
-
-        <!-- VIEW 2: PLAYER PROFILE -->
-        <div id="profileView" class="tab-content">
-            <header class="profile-header">
-                <div class="jersey-badge" id="playerJersey">#</div>
-                <div class="player-meta">
-                    <h1 class="player-name" id="playerName">Loading...</h1>
-                    <span class="player-role" id="playerRole">...</span>
-                    <span class="club-name-sub">FC Real Banglore</span>
-                </div>
-            </header>
-
-            <div class="section-title">Season Statistics</div>
-            <section class="stats-grid" id="profileStatsGrid">
-                <div class="stat-card"><div class="stat-value">...</div><div class="stat-label">Goals</div></div>
-                <div class="stat-card"><div class="stat-value">...</div><div class="stat-label">Tackles</div></div>
-                <div class="stat-card"><div class="stat-value">...</div><div class="stat-label">Nutmegs</div></div>
-                <div class="stat-card"><div class="stat-value">...</div><div class="stat-label">Penalties</div></div>
-            </section>
-
-            <div class="section-title">Player Details</div>
-            <section class="info-grid" id="infoGrid">
-                <div class="info-card"><span class="info-label">Preferred Foot</span><span class="info-value">...</span></div>
-                <div class="info-card"><span class="info-label">Appearances</span><span class="info-value">...</span></div>
-                <div class="info-card"><span class="info-label">Assists</span><span class="info-value">...</span></div>
-                <div class="info-card"><span class="info-label">Joined Club</span><span class="info-value">...</span></div>
-            </section>
-        </div>
+        <!-- Dynamic Players Section -->
+        <div class="section-title">Squad Roster</div>
+        <section class="players-grid" id="playersGrid">
+            <div class="stat-card"><div class="stat-value">...</div><div class="stat-label">Loading Roster</div></div>
+        </section>
     </div>
 
     <script>
-        // CSV Published Links
         const STATS_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQTBpk0fLwmA8UleJEOWixtImU-JpM94mbJUImXw9XwD7h6R4JAc6EkFRaFHAKPv9volTIPtjrC8ms1/pub?gid=0&single=true&output=csv';
         const PLAYERS_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQTBpk0fLwmA8UleJEOWixtImU-JpM94mbJUImXw9XwD7h6R4JAc6EkFRaFHAKPv9volTIPtjrC8ms1/pub?gid=935091105&single=true&output=csv';
-        const PROFILE_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQs8UENJBTpcWTpIB5LQNxwAuIP0Jo4ivqlEy8pFJnxERX_wO1izopTveqI_tmBsIvvm1dNzdXJq7mh/pub?gid=0&single=true&output=csv';
 
-        // Tab Switching Function
-        function switchTab(tabId, evt) {
-            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
-            document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
-            
-            document.getElementById(tabId).classList.add('active');
-            
-            if (evt && evt.target) {
-                evt.target.classList.add('active');
-            } else {
-                document.querySelectorAll('.nav-btn')[1].classList.add('active');
-            }
-        }
-
-        // CSV Helper Function
         async function fetchCSV(url) {
             const response = await fetch(url);
             const data = await response.text();
-            return data.trim().split('\n').map(row => 
-                row.split(',').map(cell => cell.replace(/^"(.*)"$/, '$1').trim())
-            );
+            return data.trim().split('\n').map(row => row.split(','));
         }
 
-        // Load Club Overview Stats
         async function loadStats() {
             try {
                 const rows = await fetchCSV(STATS_CSV_URL);
@@ -414,8 +269,8 @@
                     if (statName && value) {
                         container.innerHTML += `
                             <div class="stat-card">
-                                <div class="stat-value">${value}</div>
-                                <div class="stat-label">${statName}</div>
+                                <div class="stat-value">${value.trim()}</div>
+                                <div class="stat-label">${statName.trim()}</div>
                             </div>
                         `;
                     }
@@ -425,7 +280,6 @@
             }
         }
 
-        // Load Club Squad Roster
         async function loadPlayers() {
             try {
                 const rows = await fetchCSV(PLAYERS_CSV_URL);
@@ -436,13 +290,13 @@
                     const [number, name, position] = rows[i];
                     if (number && name) {
                         container.innerHTML += `
-                            <div class="player-card" onclick="switchTab('profileView')">
-                                <div class="jersey-number">${number}</div>
+                            <a href="profile.html" class="player-card">
+                                <div class="jersey-number">${number.trim()}</div>
                                 <div class="player-info">
-                                    <span class="player-card-name">${name}</span>
-                                    <span class="player-position">${position || ''}</span>
+                                    <span class="player-name">${name.trim()}</span>
+                                    <span class="player-position">${(position || '').trim()}</span>
                                 </div>
-                            </div>
+                            </a>
                         `;
                     }
                 }
@@ -451,43 +305,8 @@
             }
         }
 
-        // Load Personal Profile
-        async function loadProfile() {
-            try {
-                const rows = await fetchCSV(PROFILE_CSV_URL);
-                const data = {};
-                rows.forEach(row => {
-                    if (row[0] && row[1]) {
-                        data[row[0].toLowerCase()] = row[1];
-                    }
-                });
-
-                if (data['name']) document.getElementById('playerName').innerText = data['name'];
-                if (data['number']) document.getElementById('playerJersey').innerText = data['number'];
-                if (data['position']) document.getElementById('playerRole').innerText = data['position'];
-
-                document.getElementById('profileStatsGrid').innerHTML = `
-                    <div class="stat-card"><div class="stat-value">${data['goals'] || 0}</div><div class="stat-label">Goals</div></div>
-                    <div class="stat-card"><div class="stat-value">${data['tackles'] || 0}</div><div class="stat-label">Tackles</div></div>
-                    <div class="stat-card"><div class="stat-value">${data['nutmegs'] || 0}</div><div class="stat-label">Nutmegs</div></div>
-                    <div class="stat-card"><div class="stat-value">${data['penalties'] || 0}</div><div class="stat-label">Penalties</div></div>
-                `;
-
-                document.getElementById('infoGrid').innerHTML = `
-                    <div class="info-card"><span class="info-label">Preferred Foot</span><span class="info-value">${data['preferred foot'] || '-'}</span></div>
-                    <div class="info-card"><span class="info-label">Appearances</span><span class="info-value">${data['appearances'] || '-'}</span></div>
-                    <div class="info-card"><span class="info-label">Assists</span><span class="info-value">${data['assists'] || 0}</span></div>
-                    <div class="info-card"><span class="info-label">Joined Club</span><span class="info-value">${data['joined'] || '-'}</span></div>
-                `;
-            } catch (err) {
-                console.error("Error loading profile:", err);
-            }
-        }
-
-        // Run Initial Loads
         loadStats();
         loadPlayers();
-        loadProfile();
     </script>
 </body>
 </html>
